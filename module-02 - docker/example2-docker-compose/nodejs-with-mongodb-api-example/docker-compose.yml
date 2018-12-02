@@ -1,7 +1,8 @@
 version: '3'
 services: 
   api-heroes:
-    build: .
+    #build: .
+    image: k8simags.azurecr.io/api-heroes:v1
     ports: 
       - 3000:3000
     environment: 
