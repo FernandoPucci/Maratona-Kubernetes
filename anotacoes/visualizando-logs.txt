@@ -1,0 +1,5 @@
+LOGS 
+
+ az container logs --resource-group k8s-curso --name mongodb 
+
+az container show --resource-group k8s-curso --name mongodb --query ipAddress.ip 

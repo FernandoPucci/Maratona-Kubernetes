@@ -1,0 +1,3 @@
+ Recuperar senha  
+
+az acr credential show -n k8simags --query passwords[0].value 

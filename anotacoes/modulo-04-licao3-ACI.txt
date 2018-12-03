@@ -1,0 +1,35 @@
+----------------------------------------------------------------------- 
+
+ACR = k8s-imags 
+
+RESOURCE = k8s-curso 
+
+LOCATION = eastus 
+
+MONGO_IP = 13.82.199.181 
+
+API_IP= 23.96.57.64 PORT 3000 
+
+PW ACR - j7Prh/jJ8U78JL73REGHSpCO/iSqDWCW 
+
+---- AZURE CONTAINER INSTANCES (CONTAINER SERVICES) 
+
+Criando container MongoDB 
+-------------------------
+
+az container create -- resource-group k8s-curso \ 
+--name mongodb --image mongo:3.5 \ 
+--cpu 1 --memory 1 \ 
+--port 27017 \ 
+
+Criando container API 
+---------------------
+
+az container create --resource-group k8s-curso \ 
+--name api-heroes --image k8simags.azurecr.io/api-heroes:v1 \ 
+--cpu 1 --memory 1 --port 3000 \ 
+--environment-variables MONGO_URL=13.82.199.181 \ 
+--registry-username k8simags \ 
+--registry-password j7Prh/jJ8U78JL73REGHSpCO/iSqDWCW \ 
+--ip-address public 
+
